@@ -11,28 +11,23 @@ public class Main {
 
         int choice;
 
-        /** Instance Register */
-
-
-
-
-
         /** Instance Scanner */
         Scanner teclado = new Scanner(System.in);
 
         System.out.println("-------------------- Welcome to the System School --------------------");
-        System.out.println("Do you want to search teacher or student? [1- Teacher, 2- Student, 3- Ambos]: ");
+        System.out.print("Do you want to search teacher or student? [1- Teacher, 2- Student, 3- Ambos]: ");
         choice = teclado.nextInt();
 
+        Register objRegister = new Register();
+
         if (choice==1){
-            Register teacher = new Register();
-            teacher.RegisterTeacher();
+           objRegister.RegisterTeacher();
         } else if (choice==2){
-            Register student = new Register();
-            student.RegisterStudent();
+            objRegister.RegisterStudent();
         } else if (choice==3){
-            Register Both = new Register();
-            Both.BothRegister();
+            objRegister.BothRegister();
+        } else {
+            System.out.println("Opção inválida");
         }
 
 

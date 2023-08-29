@@ -3,16 +3,28 @@ package br.senai.sp.poo_introduction.Model;
 import java.util.Scanner;
 
 public class Register {
+    /** Declara Boolean*/
+    boolean flag = true;
+
+    /** Instance Teacher */
+    Teacher objTeacher = new Teacher();
+
+    /** Instance Student */
+    Student objStudent = new Student();
+
+    /** Instance Scanner */
+    Scanner teclado = new Scanner(System.in);
+
+    /** Instance Output */
+    Output objOutput = new Output();
+
     public void BothRegister() {
+        flag = false;
         RegisterTeacher();
         RegisterStudent();
     }
 
-    Scanner teclado = new Scanner(System.in);
-
     public void RegisterTeacher() {
-        /** Instance Teacher */
-        Teacher objTeacher = new Teacher();
 
         /** Get informations */
         System.out.println("===========================================================");
@@ -28,14 +40,10 @@ public class Register {
         System.out.print("What's your specialist? ");
         objTeacher.specialist = teclado.next();
 
-        /** Print informations */
-        System.out.println("\nTeacher information:");
-        System.out.println("Teacher´s Name is: " + objTeacher.name);
-        System.out.println("Teacher´s Age is: " + objTeacher.age);
-        System.out.println("Teacher´s E-mail is: " + objTeacher.email);
-        System.out.println("Teacher´s Phone Number is: " + objTeacher.phoneNumber);
-        System.out.println("Teacher´s Specialist is: " + objTeacher.specialist);
-        System.out.println("===========================================================");
+        if (flag){
+            objOutput.PrintTeacher(objTeacher);
+        }
+
     }
 
     public void RegisterStudent() {
@@ -56,14 +64,10 @@ public class Register {
         System.out.print("What's your Frequency? ");
         objStudent.frequency = teclado.nextInt();
 
-        /** Print informations */
-        System.out.println("\nStudent information:");
-        System.out.println("Student´s Name is: " + objStudent.name);
-        System.out.println("Student´s Age is: " + objStudent.age);
-        System.out.println("Student´s Grade 1 is: " + objStudent.grade1);
-        System.out.println("Student´s Grade 2 is: " + objStudent.grade2);
-        System.out.println("Student´s Frequency is: " + objStudent.frequency);
-        System.out.println("===========================================================");
+        if (flag){
+            objOutput.PrintStudent(objStudent);
+        }
+
     }
 
 }
